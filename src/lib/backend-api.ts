@@ -1,8 +1,6 @@
 import { authClient } from "@/lib/auth-client";
 
-export const API_URL = (
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
-).replace(/\/$/, "");
+export const API_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") ?? "";
 
 async function readResponse<T>(response: Response): Promise<T> {
   if (!response.ok) {
